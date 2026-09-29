@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI Collection | Official Luxury Store - Muhammad Shamoil</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/V65xt2xS/Whats-App-Image-2026-09-27-at-5-35-21-PM.jpg">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Main VIP CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-notice-bar">
+        <div class="notice-inner">
+            <i class="fa-solid fa-crown"></i>
+            <span>SI COLLECTION &bull; Luxury Fashion & Lifestyle &bull; Owner: <b>Muhammad Shamoil</b></span>
+        </div>
+        <div class="top-contacts">
+            <a href="tel:+923308464118" class="link-phone-call">
+                <i class="fa-solid fa-phone"></i> +92 330 8464118
+            </a>
+            <a href="https://chat.whatsapp.com/F7Mjb5TKiUy6WYHyfE3d5q?s=qt&p=a&mlu=4" target="_blank" class="link-wa-group">
+                <i class="fa-brands fa-whatsapp"></i> Official VIP Group
+            </a>
+        </div>
+    </div>
+
+    <!-- VIP Header & Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- Brand / Logo -->
+            <a href="index.html" class="brand-group">
+                <div class="logo-frame">
+                    <img src="https://i.postimg.cc/V65xt2xS/Whats-App-Image-2026-09-27-at-5-35-21-PM.jpg" alt="SI Collection Logo" class="brand-logo-img">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">SI COLLECTION</span>
+                    <span class="brand-sub">By Muhammad Shamoil</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="categories.html">Categories (20)</a></li>
+                <li class="nav-item"><a href="shop.html" class="active">Shop Catalog (600+)</a></li>
+                <li class="nav-item"><a href="about.html">About Brand</a></li>
+                <li class="nav-item"><a href="contact.html">Contact & Socials</a></li>
+            </ul>
+
+            <!-- Search Bar with Live Suggestions Dropdown -->
+            <div class="search-wrapper">
+                <div class="search-input-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon" id="mainSearchIcon"></i>
+                    <input type="text" id="mainSearchInput" placeholder="Search product (e.g. Shoes, Watch, Perfume)..." autocomplete="off">
+                    <button class="clear-search-btn" id="clearSearchBtn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <!-- Dynamic Autocomplete Dropdown -->
+                <div class="search-dropdown" id="searchDropdown"></div>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="header-actions">
+                <a href="tel:+923308464118" class="call-btn-chip link-phone-call">
+                    <i class="fa-solid fa-phone"></i> +92 330 8464118
+                </a>
+                <button class="mobile-menu-btn" id="mobileSidebarToggle" title="Open Categories">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Overlay for mobile drawer -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Store Layout -->
+    <div class="shop-layout">
+        
+        <!-- SIDEBAR: 20 Categories + All Products + Owner Info + Social Buttons -->
+        <aside class="shop-sidebar" id="shopSidebar">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                <div class="sidebar-heading" style="border: none; margin-bottom: 0; padding-bottom: 0;">
+                    <span><i class="fa-solid fa-layer-group" style="margin-right: 8px;"></i> Categories</span>
+                </div>
+                <button id="sidebarCloseBtn" style="background: none; border: none; color: var(--yellow-gold); font-size: 18px; cursor: pointer; display: none;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Category Search Filter -->
+            <div class="sidebar-category-filter">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="sidebarCatFilter" placeholder="Filter 20 categories...">
+            </div>
+
+            <!-- ALL PRODUCTS BUTTON -->
+            <div class="all-products-banner active" id="allProductsBtn" onclick="selectCategory('all')">
+                <span><i class="fa-solid fa-cubes" style="margin-right: 8px;"></i> ALL PRODUCTS</span>
+                <span class="count-badge">600 Items</span>
+            </div>
+
+            <!-- 20 Categories Dynamic List -->
+            <ul class="categories-list" id="sidebarCategoryList">
+                <!-- Dynamically populated via js/products-data.js -->
+            </ul>
+
+            <!-- Collapsible Business Owner & Official Social Media Links Block -->
+            <div class="sidebar-contact-card" id="sidebarContactCard">
+                <button class="sidebar-contact-trigger" onclick="toggleSidebarContact()" type="button">
+                    <div class="contact-trigger-left">
+                        <i class="fa-solid fa-headset"></i>
+                        <span>Contact & Official Socials</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down contact-chevron" id="sidebarContactChevron"></i>
+                </button>
+                <div class="sidebar-contact-content">
+                    <div class="owner-profile-strip">
+                        <i class="fa-solid fa-circle-check owner-badge-icon"></i>
+                        <div class="owner-text-info">
+                            <h5>Muhammad Shamoil</h5>
+                            <p>Founder & Sole Proprietor</p>
+                        </div>
+                    </div>
+
+                    <div class="social-button-grid">
+                        <a href="https://chat.whatsapp.com/F7Mjb5TKiUy6WYHyfE3d5q?s=qt&p=a&mlu=4" target="_blank" class="social-link-btn btn-whatsapp-group link-wa-group">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp VIP Group
+                        </a>
+                        <a href="https://wa.me/923308464118" target="_blank" class="social-link-btn btn-whatsapp-group link-wa-direct">
+                            <i class="fa-solid fa-comment-dots"></i> Direct WhatsApp Order
+                        </a>
+                        <a href="tel:+923308464118" class="social-link-btn btn-vip-secondary link-phone-call" style="background: rgba(255,200,0,0.1); border: 1px solid var(--yellow-gold); color: var(--yellow-gold-bright);">
+                            <i class="fa-solid fa-phone"></i> Call +92 330 8464118
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61564811677751" target="_blank" class="social-link-btn btn-facebook link-facebook">
+                            <i class="fa-brands fa-facebook-f"></i> Facebook Page
+                        </a>
+                        <a href="https://www.tiktok.com/@si.collection89?_r=1&_t=ZS-99cGPaaiu2P" target="_blank" class="social-link-btn btn-tiktok link-tiktok">
+                            <i class="fa-brands fa-tiktok"></i> TikTok (@si.collection89)
+                        </a>
+                        <a href="https://www.instagram.com/sicollection_2486?utm_source=qr&stkn=MTZscjd4Mzd1ZGxjZQ==" target="_blank" class="social-link-btn btn-instagram link-instagram">
+                            <i class="fa-brands fa-instagram"></i> Instagram Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Display Content Area -->
+        <main class="main-shop-content">
+            <!-- Header bar for current category / sort -->
+            <div class="shop-content-header">
+                <div class="shop-header-title">
+                    <h1 id="shopHeaderTitle">All Products Collection</h1>
+                    <p id="shopProductsCount">Showing 600 Luxury Items</p>
+                </div>
+
+                <div class="shop-filter-controls">
+                    <label style="font-size: 13px; color: var(--text-secondary);">Sort By:</label>
+                    <select class="sort-select" id="sortProductsSelect">
+                        <option value="featured">Featured Collection</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name-az">Product Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Active Search Feedback Strip -->
+            <div class="search-results-indicator" id="searchIndicatorBox" style="display: none;"></div>
+
+            <!-- Products Master Grid -->
+            <div class="products-master-grid" id="productsMasterGrid">
+                <!-- Products rendered via js/main.js -->
+            </div>
+        </main>
+    </div>
+
+    <!-- ==================== PRODUCT DETAIL POPUP MODAL ==================== -->
+    <div class="vip-modal-backdrop" id="vipProductModal">
+        <div class="vip-modal-dialog">
+            <button class="modal-close-cross" onclick="closeProductModal()"><i class="fa-solid fa-xmark"></i></button>
+
+            <div class="modal-inner-grid">
+                <!-- Left: Main Photo & 3 Related Clickable Thumbnails -->
+                <div class="modal-gallery-box">
+                    <div class="modal-main-display">
+                        <img src="" id="modalMainImg" alt="Product Image">
+                    </div>
+                    <div class="gallery-sub-title">
+                        <i class="fa-solid fa-images"></i> Product Gallery (Click to Switch Photo)
+                    </div>
+                    <div class="modal-thumbnails-row" id="modalThumbsRow">
+                        <!-- 4 Thumbnails (Main + 3 related) populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Right: Product Information & Order Actions -->
+                <div class="modal-info-box">
+                    <div>
+                        <span class="modal-cat-tag" id="modalCatTag">Category</span>
+                        <h2 class="modal-title-text" id="modalTitle">Product Title</h2>
+                        <div class="modal-price-tag" id="modalPrice">PKR 0</div>
+                        <p class="modal-description-text" id="modalDesc">Product description details...</p>
+
+                        <div class="modal-key-points">
+                            <div><i class="fa-solid fa-shield-halved"></i> 100% Genuine Handpicked Quality</div>
+                            <div><i class="fa-solid fa-truck-fast"></i> Cash on Delivery available all over Pakistan</div>
+                            <div><i class="fa-solid fa-phone"></i> Direct verification with Muhammad Shamoil</div>
+                        </div>
+                    </div>
+
+                    <!-- Order Buttons -->
+                    <div class="modal-order-buttons">
+                        <a href="#" id="modalWhatsAppBtn" target="_blank" class="btn-modal-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp (+92 330 8464118)
+                        </a>
+                        <a href="tel:+923308464118" id="modalCallBtn" class="btn-modal-call">
+                            <i class="fa-solid fa-phone"></i> Call Muhammad Shamoil Directly
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIP Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>SI COLLECTION</h3>
+                <p>Curated luxury footwear, attire, accessories, and grooming essentials for men who demand the highest standard of prestige and sophistication.</p>
+                <p>Proprietor: <b style="color: var(--yellow-gold);">Muhammad Shamoil</b></p>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Navigation</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home Page</a></li>
+                    <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Full Catalog (600 Items)</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Muhammad Shamoil</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact & Social Links</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Official Socials</h4>
+                <ul class="footer-links-list">
+                    <li><a href="https://chat.whatsapp.com/F7Mjb5TKiUy6WYHyfE3d5q?s=qt&p=a&mlu=4" target="_blank" class="link-wa-group"><i class="fa-brands fa-whatsapp"></i> WhatsApp Group</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61564811677751" target="_blank" class="link-facebook"><i class="fa-brands fa-facebook-f"></i> Facebook Page</a></li>
+                    <li><a href="https://www.tiktok.com/@si.collection89?_r=1&_t=ZS-99cGPaaiu2P" target="_blank" class="link-tiktok"><i class="fa-brands fa-tiktok"></i> TikTok Profile</a></li>
+                    <li><a href="https://www.instagram.com/sicollection_2486?utm_source=qr&stkn=MTZscjd4Mzd1ZGxjZQ==" target="_blank" class="link-instagram"><i class="fa-brands fa-instagram"></i> Instagram Account</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Direct Order & Help</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <b>Call / WhatsApp</b><br>
+                        <a href="tel:+923308464118" style="color: #fff; text-decoration: none;">+92 330 8464118</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <b>Instant WhatsApp Chat</b><br>
+                        <a href="https://wa.me/923308464118" target="_blank" style="color: var(--yellow-gold); text-decoration: none;">Message Muhammad Shamoil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div>&copy; 2026 <b>SI COLLECTION</b>. All Rights Reserved. Owned by <b>Muhammad Shamoil</b>.</div>
+            <div>Cash on Delivery Available Across Pakistan 🇵🇰</div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="shop.html" class="mobile-nav-item active">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Shop</span>
+        </a>
+        <a href="javascript:void(0)" onclick="document.getElementById('mobileSidebarToggle').click()" class="mobile-nav-item">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Categories</span>
+        </a>
+        <a href="https://wa.me/923308464118" target="_blank" class="mobile-nav-item link-wa-direct">
+            <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="contact.html" class="mobile-nav-item">
+            <i class="fa-solid fa-address-book"></i>
+            <span>Contact</span>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/products-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
